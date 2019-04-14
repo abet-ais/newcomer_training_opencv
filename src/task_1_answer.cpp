@@ -10,7 +10,7 @@
 /**********************************************************************
    Include Libraries
 **********************************************************************/
-#include <opencv/cv.h>
+#include <opencv/cv.hpp>
 #include <opencv2/core/core.hpp>
 #include <opencv2/highgui/highgui.hpp>
 #include <iostream>
@@ -38,14 +38,12 @@
 **********************************************************************/
 int main(int argc, char** argv){
 
-  std::cout <<"1"<< std::endl;
-
   /* imageという変数を作る */
   cv::Mat image;
 
 
   /* sample.pngを読み込む(pathは各自の環境に合わせてください) */
-  image = cv::imread("/home/ais/ais-project/catkin_ws/src/devel/abe/ais_development/newcomer_training_opencv/image_data/sample.png",CV_LOAD_IMAGE_COLOR);
+  image = cv::imread("/home/taiki/taiki-project/catkin_ws/src/newcomer_training_opencv/image_data/sample.png",CV_LOAD_IMAGE_COLOR);
 
 
   /* 生データを表示してみよう */
@@ -92,7 +90,6 @@ int main(int argc, char** argv){
   inRange(hsv_image, green_min, green_max, mask_green);
   image.copyTo(output_hsv,mask_green);  
   cv::imshow("display_hsv", output_hsv);
-
 
   cv::waitKey(0);
   return 0;
